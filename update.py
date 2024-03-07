@@ -31,13 +31,13 @@ DATABASE_URL = environ.get('DATABASE_URL', '')
 if len(DATABASE_URL) == 0:
     DATABASE_URL = None
 
-if DATABASE_URL:
-    conn = MongoClient(DATABASE_URL)
-    db = conn.z
-    if config_dict := db.settings.config.find_one({'_id': bot_id}):
-        environ['UPSTREAM_REPO'] = config_dict['UPSTREAM_REPO']
-        environ['UPSTREAM_BRANCH'] = config_dict['UPSTREAM_BRANCH']
-    conn.close()
+#if DATABASE_URL:
+   # conn = MongoClient(DATABASE_URL)
+    #db = conn.z
+    #if config_dict := db.settings.config.find_one({'_id': bot_id}):
+        #environ['UPSTREAM_REPO'] = config_dict['UPSTREAM_REPO']
+        #environ['UPSTREAM_BRANCH'] = config_dict['UPSTREAM_BRANCH']
+    #conn.close()
 
 UPSTREAM_REPO = environ.get('UPSTREAM_REPO', '')
 log_info(f'Entered upstream repo: {UPSTREAM_REPO}')
