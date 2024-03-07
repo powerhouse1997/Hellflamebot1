@@ -37,7 +37,7 @@ if DATABASE_URL:
     if config_dict := db.settings.config.find_one({'_id': bot_id}):
         environ['UPSTREAM_REPO'] = config_dict['UPSTREAM_REPO']
         environ['UPSTREAM_BRANCH'] = config_dict['UPSTREAM_BRANCH']
-    conn.close()
+conn.close()
 
 UPSTREAM_REPO = environ.get('UPSTREAM_REPO', '')
 log_info(f'Entered upstream repo: {UPSTREAM_REPO}')
